@@ -26,4 +26,4 @@ jobs:
           external_repository: parkjin21004/parkjin21004.github.io
           publish_branch: main
           publish_dir: ./build
-          destination_dir: react-clone-movie
+          destination_dir: react_clone_movie
