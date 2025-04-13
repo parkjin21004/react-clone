@@ -12,7 +12,7 @@ function Detail() {
       setMovie(json.data.movie);
     };
     getMovie();
-  }, []);
+  }, [id]);
 
   if (!movie) {
     return <strong>Loading...</strong>;
