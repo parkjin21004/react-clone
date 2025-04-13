@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
-import Movie from "../components/Movie";
+// import { useEffect, useState } from "react";
+// import Movie from "../components/Movie";
+import Footer from "../components/Footer/Footer";
 import Hero from "../components/Hero/Hero";
 
 function Home() {
@@ -10,6 +11,7 @@ function Home() {
         <p>여기부터 일반 컨텐츠</p>
         <p>스크롤이 생길 만큼 쭉 길게 작성하세요</p>
       </div>
+      <Footer></Footer>
     </div>
   );
 }
