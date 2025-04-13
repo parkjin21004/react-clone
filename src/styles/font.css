@@ -1,0 +1,71 @@
+@font-face {
+  font-family: "Chronicle Display Semi";
+  src: url("../assets/fonts/ChronicleDisplay-Semi.woff") format("woff2"),
+    url("../assets/fonts/ChronicleDisplay-Semi.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Chronicle Display";
+  src: url("../assets/fonts/ChronicleDisplay-LightItalic.woff2") format("woff2"),
+    url("../assets/fonts/ChronicleDisplay-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Chronicle Display";
+  src: url("../assets/fonts/ChronicleDisplay-Roman.woff2") format("woff2"),
+    url("../assets/fonts/ChronicleDisplay-Roman.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Chronicle Display";
+  src: url("../assets/fonts/ChronicleDisplay-Black.woff2") format("woff2"),
+    url("../assets/fonts/ChronicleDisplay-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../assets/fonts/Gilroy-ExtraBold.woff2") format("woff2"),
+    url("../assets/fonts/Gilroy-ExtraBold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../assets/fonts/Gilroy-Light.woff2") format("woff2"),
+    url("../assets/fonts/Gilroy-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Castoro";
+  src: url("../assets/fonts/Castoro-Regular.woff2") format("woff2"),
+    url("../assets/fonts/Castoro-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Castoro";
+  src: url("../assets/fonts/Castoro-Italic.woff2") format("woff2"),
+    url("../assets/fonts/Castoro-Italic.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}

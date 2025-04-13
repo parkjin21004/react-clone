@@ -1,0 +1,29 @@
+name: Deploy to GitHub Pages (react-clone-movie)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the project
+        run: npm run build
+
+      - name: Deploy to GitHub Pages subdirectory
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.PERSONAL_KEY }}
+          external_repository: parkjin21004/parkjin21004.github.io
+          publish_branch: main
+          publish_dir: ./build
+          destination_dir: react-clone-movie
