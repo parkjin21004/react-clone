@@ -5,7 +5,7 @@ import Detail from "./routes/Detail";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="react_clone_movie">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movie/:id" element={<Detail />} />
