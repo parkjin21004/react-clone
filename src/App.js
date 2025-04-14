@@ -3,9 +3,12 @@ import "./styles/main.css";
 import Home from "./routes/Home";
 import Detail from "./routes/Detail";
 
+const basename =
+  process.env.NODE_ENV === "production" ? "/react-clone-movie" : "/";
+
 function App() {
   return (
-    <BrowserRouter basename="react_clone_movie">
+    <BrowserRouter basename={basename}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movie/:id" element={<Detail />} />

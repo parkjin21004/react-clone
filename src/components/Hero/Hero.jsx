@@ -1,5 +1,6 @@
 import styles from "./Hero.module.css";
 import { ReactComponent as ArrowDown } from "../../assets/svgs/arrow_down_24px.svg";
+import { ReactComponent as GithubIcon } from "../../assets/svgs/github.svg";
 
 function Hero() {
   return (
@@ -11,6 +12,14 @@ function Hero() {
         <div className={styles.heroMiddleContent}>
           <div className={styles.socialContainer}>
             <p className={styles.socialText}>Follow us</p>
+            <a
+              href="https://github.com/parkjin21004"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.githubLink}
+            >
+              <GithubIcon className={styles.githubIcon}></GithubIcon>
+            </a>
           </div>
           <div className={styles.titleContent}>
             <div className={styles.subTitleContainer}>
