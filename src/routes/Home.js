@@ -6,14 +6,14 @@ import MovieCard from "../components/MovieCard/MovieCard";
 
 function Home() {
   return (
-    <div>
+    <div className="min-h-screen">
       <Hero />
-      <div className="content-section">
+      <div className="">
         <MovieCard
-          index={1}
+          index={0}
           title="Attack on Titan the Movie: The Last Attack"
           genre={["Action", "Adventure", "Animation", "Drama"]}
-          summary="역사는 반복된다..."
+          summary="This is just a remake of the classic LP album by Pink Floyd. Excellent quality and sound. No actual video like in a concert. Just the music."
           posterURL="https://yts.mx/assets/images/movies/attack_on_titan_the_movie_the_last_attack_2024/large-cover.jpg"
           reverse={0}
         ></MovieCard>
