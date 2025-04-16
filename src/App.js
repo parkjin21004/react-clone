@@ -1,17 +1,8 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./styles/main.css";
 import Home from "./routes/Home";
-import Detail from "./routes/Detail";
 
 function App() {
-  return (
-    <BrowserRouter basename="react_clone_movie">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movie/:id" element={<Detail />} />
-      </Routes>
-    </BrowserRouter>
-  );
+  return <Home></Home>;
 }
 
 export default App;
