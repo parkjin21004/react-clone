@@ -1,6 +1,6 @@
 function MovieCard({ index, title, genre, summary = "", posterURL }) {
   return (
-    <div className={"container mx-auto px-4 py-8"}>
+    <div className={"container mx-auto px-4 py-8 my-20"}>
       <div
         className={`flex flex-col justify-between w-full max-w-5lg mx-auto gap-6 lg:gap-0 ${
           index % 2 === 0
@@ -18,7 +18,7 @@ function MovieCard({ index, title, genre, summary = "", posterURL }) {
         <div className="w-full lg:w-1/2 flex lg:justify-end justify-center items-center">
           <div className="relative w-1/2 lg:w-3/4">
             <div className="absolute -top-14 -left-24 lg:-top-16 lg:-left-24 z-0 font-gilroy font-extrabold text-9xl text-white opacity-30">
-              {"01"}
+              {(index + 1).toString().padStart(2, "0")}
             </div>
             <div className="flex flex-col w-full h-full gap-3">
               <div className="flex flex-row items-center gap-2">
