@@ -6,7 +6,7 @@ import MovieCard from "../components/MovieCard/MovieCard";
 
 function Home() {
   return (
-    <div className="min-h-screen">
+    <div>
       <Hero />
       <div className="">
         <MovieCard
