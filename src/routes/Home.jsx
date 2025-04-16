@@ -9,43 +9,45 @@ function Home() {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const lastRef = useRef(null);
-  const fetchMovie = async () => {
-    const response = await fetch(
-      `https://yts.mx/api/v2/list_movies.json?limit=5&page=${page}&minimum_rating=9&sort_by=rating`
-    );
-    const json = await response.json();
-
-    if (json.data.movies && json.data.movies.length > 0) {
-      setMovies((prev) => [...prev, ...json.data.movies]);
-      setPage((prev) => prev + 1);
-    } else {
-      setHasMore(false);
-    }
-  };
 
   useEffect(() => {
-    fetchMovie();
-  }, []);
+    const fetchMovies = async () => {
+      const response = await fetch(
+        `https://yts.mx/api/v2/list_movies.json?limit=5&page=${page}&minimum_rating=9&sort_by=rating`
+      );
+      const json = await response.json();
+
+      if (json.data.movies && json.data.movies.length > 0) {
+        setMovies((prev) => [...prev, ...json.data.movies]);
+        // setPage((prev) => prev + 1);
+      } else {
+        setHasMore(false);
+      }
+    };
+
+    fetchMovies();
+  }, [page]);
 
   useEffect(() => {
+    const last = lastRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
-          observer.unobserve(lastRef.current);
+          observer.unobserve(last);
           if (!hasMore) return;
-          fetchMovie();
+          setPage((prev) => prev + 1);
         }
       },
       { threshold: 0.25 }
     );
 
-    if (lastRef.current) {
-      observer.observe(lastRef.current);
+    if (last) {
+      observer.observe(last);
     }
 
     return () => {
-      if (lastRef.current) {
-        observer.unobserve(lastRef.current);
+      if (last) {
+        observer.unobserve(last);
       }
     };
   }, [hasMore, movies]);
