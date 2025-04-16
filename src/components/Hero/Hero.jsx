@@ -14,7 +14,7 @@ function Hero() {
         <div className="absolute top-0 left-0">
           <h1 className="text-5xl font-chronicleSemi tracking-wide">MOVIE</h1>
         </div>
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full flex flex-col lg:flex-row justify-between gap-10">
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full flex flex-col lg:flex-row justify-between gap-10 lg:gap-0">
           <div className="flex flex-col justify-start">
             <p className="font-bold" style={{ writingMode: "vertical-lr" }}>
               Follow us
@@ -28,7 +28,7 @@ function Hero() {
               <GithubIcon className="w-6 h-6 mt-4"></GithubIcon>
             </a>
           </div>
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 lg:mr-40">
             <div className="flex items-center gap-2">
               <div className="bg-accent w-12 h-0.5"></div>
               <h2 className="text-accent font-gilroy font-extrabold text-base tracking-widest">

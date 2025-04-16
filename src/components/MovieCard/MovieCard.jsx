@@ -3,7 +3,7 @@ function MovieCard({ index, title, genre, summary = "", posterURL }) {
     <div className={"container mx-auto px-4 py-8"}>
       <div
         className={`flex flex-col justify-between w-full max-w-5lg mx-auto gap-6 lg:gap-0 ${
-          index % 2 == 0
+          index % 2 === 0
             ? "lg:flex-row-reverse place-items-center"
             : "lg:flex-row place-items-center"
         }`}
