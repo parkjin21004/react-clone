@@ -1,8 +1,19 @@
+import { motion, useScroll, useTransform } from "framer-motion";
 import bgImage from "../../assets/images/interstellar-bg.png";
 import { ReactComponent as ArrowDown } from "../../assets/svgs/arrow_down_24px.svg";
 import { ReactComponent as GithubIcon } from "../../assets/svgs/github.svg";
+import { useRef } from "react";
 
 function Hero() {
+  const titleRef = useRef();
+  const { scrollYProgress } = useScroll({
+    target: titleRef,
+    offset: ["start end", "end start"],
+  });
+
+  const y = useTransform(scrollYProgress, [0.5, 1], [0, 400]);
+  const opcaity = useTransform(scrollYProgress, [0.5, 0.9], [1, 0]);
+
   return (
     <div
       className="min-h-screen bg-cover bg-left-top bg-no-repeat flex items-start justify-center text-white"
@@ -10,7 +21,10 @@ function Hero() {
         backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #03021d 80%), url(${bgImage})`,
       }}
     >
-      <div className="w-[90%] h-[630px] mt-16 relative">
+      <div
+        className="w-[90%] h-[calc(100vh-4rem)] mt-16 relative"
+        ref={titleRef}
+      >
         <div className="absolute top-0 left-0">
           <h1 className="text-5xl font-chronicleSemi tracking-wide">MOVIE</h1>
         </div>
@@ -23,12 +37,15 @@ function Hero() {
               href="https://github.com/parkjin21004"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4"
+              className="mt-8"
             >
-              <GithubIcon className="w-6 h-6 mt-4"></GithubIcon>
+              <GithubIcon className="w-6 h-6 fill-current text-white hover:text-accent transition-colors"></GithubIcon>
             </a>
           </div>
-          <div className="flex flex-col gap-6 lg:mr-40">
+          <motion.div
+            style={{ y, opacity: opcaity }}
+            className="flex flex-col gap-6 lg:mr-40"
+          >
             <div className="flex items-center gap-2">
               <div className="bg-accent w-12 h-0.5"></div>
               <h2 className="text-accent font-gilroy font-extrabold text-base tracking-widest">
@@ -41,9 +58,9 @@ function Hero() {
             </div>
             <div className="flex items-center gap-2 font-bold">
               scroll down
-              <ArrowDown className="w-4 h-4 ml-2 color" />
+              <ArrowDown className="w-4 h-6 ml-2 color" />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
