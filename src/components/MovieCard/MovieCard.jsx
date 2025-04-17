@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { ReactComponent as ArrowDown } from "../../assets/svgs/arrow_right_24px.svg";
 
 function MovieCard({ index, title, genre, summary = "", posterURL }) {
@@ -35,10 +36,16 @@ function MovieCard({ index, title, genre, summary = "", posterURL }) {
               <div className="font-gilroy font-extrabold text-sm text-white ">
                 <p className="line-clamp-5">{summary}</p>
               </div>
-              <div className="font-gilroy font-extrabold text-1xl text-accent flex felx-row items-center gap-2">
+              <motion.div
+                className="font-gilroy font-extrabold text-1xl text-accent flex felx-row items-center gap-2 cursor-pointer"
+                whileHover={{
+                  transform: "translateX(10px)",
+                  transition: { duration: 0.2 },
+                }}
+              >
                 read more
                 <ArrowDown className="w-6 h-4" />
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>

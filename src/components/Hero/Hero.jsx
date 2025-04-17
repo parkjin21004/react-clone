@@ -23,9 +23,9 @@ function Hero() {
               href="https://github.com/parkjin21004"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4"
+              className="mt-8"
             >
-              <GithubIcon className="w-6 h-6 mt-4"></GithubIcon>
+              <GithubIcon className="w-6 h-6 fill-current text-white hover:text-accent transition-colors"></GithubIcon>
             </a>
           </div>
           <div className="flex flex-col gap-6 lg:mr-40">
