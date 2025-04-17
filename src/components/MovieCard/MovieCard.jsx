@@ -1,7 +1,14 @@
 import { motion } from "framer-motion";
 import { ReactComponent as ArrowDown } from "../../assets/svgs/arrow_right_24px.svg";
 
-function MovieCard({ index, title, genre, summary = "", posterURL }) {
+function MovieCard({
+  index,
+  title,
+  genre,
+  summary = "",
+  posterURL,
+  onMoreClick,
+}) {
   return (
     <div className={"container mx-auto px-4 py-8 my-20"}>
       <div
@@ -42,6 +49,7 @@ function MovieCard({ index, title, genre, summary = "", posterURL }) {
                   transform: "translateX(10px)",
                   transition: { duration: 0.2 },
                 }}
+                onClick={onMoreClick}
               >
                 read more
                 <ArrowDown className="w-6 h-4" />
