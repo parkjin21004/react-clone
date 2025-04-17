@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-// import Movie from "../components/Movie";
 import Footer from "../components/Footer/Footer";
 import Hero from "../components/Hero/Hero";
 import MovieCard from "../components/MovieCard/MovieCard";

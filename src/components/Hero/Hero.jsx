@@ -41,7 +41,7 @@ function Hero() {
             </div>
             <div className="flex items-center gap-2 font-bold">
               scroll down
-              <ArrowDown className="w-4 h-4 ml-2 color" />
+              <ArrowDown className="w-4 h-6 ml-2 color" />
             </div>
           </div>
         </div>

@@ -1,3 +1,5 @@
+import { ReactComponent as ArrowDown } from "../../assets/svgs/arrow_right_24px.svg";
+
 function MovieCard({ index, title, genre, summary = "", posterURL }) {
   return (
     <div className={"container mx-auto px-4 py-8 my-20"}>
@@ -33,8 +35,9 @@ function MovieCard({ index, title, genre, summary = "", posterURL }) {
               <div className="font-gilroy font-extrabold text-sm text-white ">
                 <p className="line-clamp-5">{summary}</p>
               </div>
-              <div className="font-gilroy font-extrabold text-1xl text-accent">
+              <div className="font-gilroy font-extrabold text-1xl text-accent flex felx-row items-center gap-2">
                 read more
+                <ArrowDown className="w-6 h-4" />
               </div>
             </div>
           </div>
