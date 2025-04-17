@@ -1,3 +1,4 @@
+import YouTube from "react-youtube";
 import { ReactComponent as XIcon } from "../../assets/svgs/x-24.svg";
 
 function ModalCard({
@@ -28,13 +29,22 @@ function ModalCard({
             <h1 className="text-white text-4xl font-bold font-chronicleSemi">
               {title}
             </h1>
-            <div className=" text-white text-md font-gilroy font-bold flex flex-col gap-2">
+            <div className=" text-slate-200 text-md font-gilroy font-semibold flex flex-col gap-2">
               <p>Year: {year}</p>
               <p>Genre: {genre.join(", ")}</p>
               <p>Runtime: {runtime} min</p>
               <p>Rating: {rating}</p>
             </div>
-            <div className="aspect-video bg-red-300"></div>
+            <div className="sm:w[300px] sm:h-[200px] md:w-[360px] md:h-[240px] xl:w-[480px] xl:h-[320px] 2xl:w-[600px] 2xl:h-[400px] w-full h-full">
+              <YouTube
+                className="w-full h-full"
+                videoId={trailerCode}
+                opts={{ width: "100%", height: "100%" }}
+                onEnd={(event) => {
+                  event.target.stopVideo(0);
+                }}
+              ></YouTube>
+            </div>
           </div>
         </div>
       </div>

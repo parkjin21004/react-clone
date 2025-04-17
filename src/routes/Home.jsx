@@ -79,7 +79,7 @@ function Home() {
         <ModalCard
           title="Attack on Titan the Movie: The Last Attack"
           genre={["Action", "Adventure", "Animation", "Drama"]}
-          Year={2024}
+          year={2024}
           runtime={145}
           rating={9.2}
           posterURL={
