@@ -18,25 +18,26 @@
   Nomad Coders 강의를 따라가며 **React 기반의 웹페이지** 개발을 실습
 
 - **🛠 기술 스택:**  
-  `React.js`, `CSS`, `JSX`, `React Router`
+  `React.js`, `JSX`, `TailwindCSS`, `framer-motion`
 
 ---
 
 ## ✨ 주요 기능
 
-- 🎞️ 영화 목록 카드 UI 렌더링
-- 🔍 영화 상세 페이지 (React Router 활용)
-- 🎨 CSS로 기본 스타일링 적용
-
+- 🎬 영화 목록 카드 UI 렌더링
+- 🔍 영화 상세 페이지 (Modal)
+- 🎨 TailwindCSS를 이용한 반응형 디자인
+- 🏃 framer-motion을 이용한 인터렉션
 ---
 
-## 📂 폴더 구조 (예시)
+## 📂 폴더 구조
 
 ```
 src/
 ├── assets/ # 이미지 등 정적 자산
 ├── components/ # 재사용 컴포넌트
 ├── routes/ # 페이지 라우트
+├── styles/ # 전역 css 및 폰트
 ├── App.js
 └── index.js
 ```
