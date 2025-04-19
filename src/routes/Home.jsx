@@ -76,16 +76,20 @@ function Home() {
 
       <AnimatePresence>
         {isModalOpen && (
-          <motion.div className="fixed inset-0 flex items-center justify-center z-10">
+          <div className="fixed inset-0 flex items-center justify-center z-10">
+            <motion.div
+              className="bg-white z-20 w-full h-full absolute"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.05 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            ></motion.div>
             <motion.div
               onClick={() => setIsModalOpen(false)}
               initial={{ backdropFilter: "blur(0px)" }}
               animate={{ backdropFilter: "blur(16px)" }}
               exit={{ backdropFilter: "blur(0px)" }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-              style={{
-                background: "rgba(0, 0, 0, 0.2)",
-              }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
               className="absolute inset-0 z-40"
             />
             <motion.div
@@ -105,10 +109,11 @@ function Home() {
                 posterURL={selectedMovie.large_cover_image}
                 bgURL={selectedMovie.background_image_original}
                 trailerCode={selectedMovie.yt_trailer_code}
+                summary={selectedMovie.summary}
                 onClose={() => setIsModalOpen(false)}
               ></ModalCard>
             </motion.div>
-          </motion.div>
+          </div>
         )}
       </AnimatePresence>
       <div className="relative z-0">

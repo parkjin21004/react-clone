@@ -10,6 +10,7 @@ function ModalCard({
   posterURL,
   bgURL,
   trailerCode,
+  summary,
   onClose,
 }) {
   return (
@@ -22,19 +23,26 @@ function ModalCard({
       <button onClick={onClose}>
         <XIcon className="absolute top-6 right-6 w-6 h-6 fill-current text-white hover:text-red-400 transition-colors"></XIcon>
       </button>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-row justify-between items-center w-5/6 h-5/6">
-        <img src={posterURL} alt={title} className="max-h-full" />
-        <div className="flex flex-col justify-center w-1/2 lg:ml-4 gap-8">
+      <div className="lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 flex flex-row justify-between items-center lg:w-5/6 lg:h-5/6 w-full h-full px-4 pt-16 pb-4 lg:p-0">
+        <img
+          src={posterURL}
+          alt={title}
+          className="max-h-full hidden lg:block"
+        />
+        <div className="flex flex-col justify-first lg:w-1/2 lg:ml-4 gap-8 w-full h-full ">
           <h1 className="text-white text-4xl font-bold font-chronicleSemi">
             {title}
           </h1>
           <div className=" text-slate-200 text-md font-gilroy font-semibold flex flex-col gap-2">
-            <p>Year: {year}</p>
-            <p>Genre: {genre.join(", ")}</p>
-            <p>Runtime: {runtime} min</p>
-            <p>Rating: {rating}</p>
+            <p className="line-clamp-1">Year: {year}</p>
+            <p className="line-clamp-1">Genre: {genre.join(", ")}</p>
+            <p className="line-clamp-1">Runtime: {runtime} min</p>
+            <p className="line-clamp-1">Rating: {rating}</p>
           </div>
-          <div className="aspect-video w-full h-full">
+          <div className="max-h-[40vh] overflow-y-auto text-slate-200 text-md font-gilroy font-semibold block lg:hidden">
+            <p>{summary}</p>
+          </div>
+          <div className="aspect-video w-full h-auto order-first lg:order-none">
             <YouTube
               className="w-full h-full"
               videoId={trailerCode}
