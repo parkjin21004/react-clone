@@ -3,6 +3,7 @@ import Footer from "../components/Footer/Footer";
 import Hero from "../components/Hero/Hero";
 import MovieCard from "../components/MovieCard/MovieCard";
 import ModalCard from "../components/ModalCard/ModalCard";
+import { AnimatePresence, motion } from "framer-motion";
 
 function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -72,25 +73,44 @@ function Home() {
   return (
     <div className="relative">
       <Hero isLoaded={isLoaded} />
-      {isModalOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-40"
-          onClick={() => setIsModalOpen(false)}
-        ></div>
-      )}
-      {isModalOpen && (
-        <ModalCard
-          title={selectedMovie.title}
-          genre={selectedMovie.genres}
-          year={selectedMovie.year}
-          runtime={selectedMovie.runtime}
-          rating={selectedMovie.rating}
-          posterURL={selectedMovie.large_cover_image}
-          bgURL={selectedMovie.background_image_original}
-          trailerCode={selectedMovie.yt_trailer_code}
-          onClose={() => setIsModalOpen(false)}
-        ></ModalCard>
-      )}
+
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div className="fixed inset-0 flex items-center justify-center z-10">
+            <motion.div
+              onClick={() => setIsModalOpen(false)}
+              initial={{ backdropFilter: "blur(0px)" }}
+              animate={{ backdropFilter: "blur(16px)" }}
+              exit={{ backdropFilter: "blur(0px)" }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              style={{
+                background: "rgba(0, 0, 0, 0.2)",
+              }}
+              className="absolute inset-0 z-40"
+            />
+            <motion.div
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-5/6 h-5/6 z-50"
+              initial={{ y: "100%", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: "100%", opacity: 0 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+            >
+              <ModalCard
+                title={selectedMovie.title}
+                genre={selectedMovie.genres}
+                year={selectedMovie.year}
+                runtime={selectedMovie.runtime}
+                rating={selectedMovie.rating}
+                posterURL={selectedMovie.large_cover_image}
+                bgURL={selectedMovie.background_image_original}
+                trailerCode={selectedMovie.yt_trailer_code}
+                onClose={() => setIsModalOpen(false)}
+              ></ModalCard>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div className="relative z-0">
         {movies.map((movie, index) => {
           return (
