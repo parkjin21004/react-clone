@@ -25,7 +25,7 @@ function ModalCard({
         </button>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-row justify-between items-center w-5/6 h-5/6">
           <img src={posterURL} alt={title} className="max-h-full" />
-          <div className="flex flex-col justify-center lg:ml-4 gap-8">
+          <div className="flex flex-col justify-center w-1/2 lg:ml-4 gap-8">
             <h1 className="text-white text-4xl font-bold font-chronicleSemi">
               {title}
             </h1>
@@ -35,7 +35,7 @@ function ModalCard({
               <p>Runtime: {runtime} min</p>
               <p>Rating: {rating}</p>
             </div>
-            <div className="sm:w[300px] sm:h-[200px] md:w-[360px] md:h-[240px] xl:w-[480px] xl:h-[320px] 2xl:w-[600px] 2xl:h-[400px] w-full h-full">
+            <div className="aspect-video w-full h-full">
               <YouTube
                 className="w-full h-full"
                 videoId={trailerCode}

@@ -9,6 +9,7 @@ function Home() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  const [selectedMovie, setSelectedMovie] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const lastRef = useRef(null);
 
@@ -38,7 +39,9 @@ function Home() {
     fetchMovies();
   }, [page]);
 
-  const handleModalOpen = () => {
+  const handleModalOpen = (idx) => {
+    const movie = movies[idx];
+    setSelectedMovie(movie);
     setIsModalOpen(true);
   };
 
@@ -77,18 +80,14 @@ function Home() {
       )}
       {isModalOpen && (
         <ModalCard
-          title="Attack on Titan the Movie: The Last Attack"
-          genre={["Action", "Adventure", "Animation", "Drama"]}
-          year={2024}
-          runtime={145}
-          rating={9.2}
-          posterURL={
-            "https://yts.mx/assets/images/movies/attack_on_titan_the_movie_the_last_attack_2024/large-cover.jpg"
-          }
-          bgURL={
-            "https://yts.mx/assets/images/movies/attack_on_titan_the_movie_the_last_attack_2024/background.jpg"
-          }
-          trailerCode={"3xNH23QkNpk"}
+          title={selectedMovie.title}
+          genre={selectedMovie.genres}
+          year={selectedMovie.year}
+          runtime={selectedMovie.runtime}
+          rating={selectedMovie.rating}
+          posterURL={selectedMovie.large_cover_image}
+          bgURL={selectedMovie.background_image_original}
+          trailerCode={selectedMovie.yt_trailer_code}
           onClose={() => setIsModalOpen(false)}
         ></ModalCard>
       )}
@@ -102,7 +101,7 @@ function Home() {
                 genre={movie.genres}
                 summary={movie.summary}
                 posterURL={movie.large_cover_image}
-                onMoreClick={handleModalOpen}
+                onMoreClick={() => handleModalOpen(index)}
               ></MovieCard>
             </div>
           );
